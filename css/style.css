@@ -4267,8 +4267,8 @@ img {
 
 .success-message {
   border-radius: var(--_typography---extra-value--radius10);
-  background-color: var(--_color---heading-color);
-  color: var(--_color---secondary-color);
+  background-color: #eee7ff
+  color: var(--_color---theme-color);
 }
 
 .error-message {
