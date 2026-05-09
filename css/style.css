@@ -4267,7 +4267,7 @@ img {
 
 .success-message {
   border-radius: var(--_typography---extra-value--radius10);
-  background-color: #eee7ff
+  background-color: #eee7ff;
   color: var(--_color---theme-color);
 }
 
