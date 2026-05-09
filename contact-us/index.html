@@ -215,11 +215,25 @@
                 >
                   <div class="w-form">
                     <form
-                      id="email-form"
-                      name="email-form"
-                      data-name="Email Form"
-                      method="get"
+                      action="https://api.web3forms.com/submit"
+                      method="POST"
+                      id="contact-form"
                     >
+                      <input
+                        type="hidden"
+                        name="access_key"
+                        value="2968d3f7-a925-4b52-8fb9-515bf2f3c7b3"
+                      />
+                      <input
+                        type="hidden"
+                        name="subject"
+                        value="New Contact Form Submission - Loqum"
+                      />
+                      <input
+                        type="hidden"
+                        name="redirect"
+                        value="https://loqum.health/contact-us/?success=true"
+                      />
                       <div class="contact-field-column">
                         <div class="contact-field-block">
                           <label for="F-Name" class="contact-field-label"
@@ -302,13 +316,21 @@
                         value="Send message"
                       />
                     </form>
-                    <div class="success-message w-form-done">
+                    <div
+                      class="success-message w-form-done"
+                      id="success-message"
+                      style="display: none"
+                    >
                       <div>
                         Thank you! We've received your message and will get back
                         to you within 2 business days.
                       </div>
                     </div>
-                    <div class="error-message w-form-fail">
+                    <div
+                      class="error-message w-form-fail"
+                      id="error-message"
+                      style="display: none"
+                    >
                       <div>
                         Something went wrong. Please try again or email us
                         directly at support@loqum.health.
@@ -683,5 +705,13 @@
       integrity="sha384-exxq/tyTQ0eik0T9DjPnXlFr7JmdZMbwa3xGDNd9/J+780Iym7VciIhqCblrV5ni"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("success") === "true") {
+        document.getElementById("contact-form").style.display = "none";
+        document.getElementById("success-message").style.display = "block";
+      }
+    </script>
   </body>
 </html>
