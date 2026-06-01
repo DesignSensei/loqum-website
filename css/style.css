@@ -786,98 +786,6 @@ textarea.w-select {
   display: none !important;
 }
 
-/* Loqum Choices.js Dropdown Styling */
-
-.contact-field-block .choices {
-  width: 100%;
-  margin-bottom: 0;
-  font-family: inherit;
-}
-
-.contact-field-block .choices__inner {
-  width: 100%;
-  min-height: 56px;
-  display: flex;
-  align-items: center;
-  border: none;
-  border-radius: 14px;
-  background-color: #ffffff;
-  padding: 0 48px 0 18px;
-  font-family: inherit;
-  font-size: 15px;
-  line-height: 1.4;
-  color: #111111;
-  box-shadow: none;
-}
-
-.contact-field-block .choices[data-type*="select-one"] .choices__inner {
-  padding-bottom: 0;
-}
-
-.contact-field-block .choices__list--single {
-  padding: 0;
-}
-
-.contact-field-block .choices__placeholder {
-  opacity: 1;
-  color: rgba(17, 17, 17, 0.45);
-}
-
-.contact-field-block .choices__item {
-  font-size: 15px;
-  line-height: 1.4;
-}
-
-.contact-field-block .choices[data-type*="select-one"]::after {
-  border: none;
-  width: 9px;
-  height: 9px;
-  right: 20px;
-  margin-top: -6px;
-  border-right: 2px solid #6a23ff;
-  border-bottom: 2px solid #6a23ff;
-  transform: rotate(45deg);
-}
-
-.contact-field-block .choices[data-type*="select-one"].is-open::after {
-  margin-top: -2px;
-  transform: rotate(225deg);
-}
-
-.contact-field-block .choices.is-focused .choices__inner,
-.contact-field-block .choices.is-open .choices__inner {
-  border: none;
-  box-shadow: 0 0 0 2px rgba(106, 35, 255, 0.16);
-}
-
-.contact-field-block .choices__list--dropdown,
-.contact-field-block .choices__list[aria-expanded] {
-  z-index: 50;
-  margin-top: 8px;
-  border: none;
-  border-radius: 14px;
-  background-color: #ffffff;
-  overflow: hidden;
-  box-shadow: 0 18px 40px rgba(17, 17, 17, 0.12);
-}
-
-.contact-field-block .choices__list--dropdown .choices__item,
-.contact-field-block .choices__list[aria-expanded] .choices__item {
-  padding: 13px 18px;
-  font-size: 15px;
-  color: #111111;
-}
-
-.contact-field-block .choices__list--dropdown .choices__item--selectable.is-highlighted,
-.contact-field-block .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
-  background-color: rgba(106, 35, 255, 0.08);
-  color: #6a23ff;
-}
-
-.contact-field-block .choices__list--dropdown .choices__placeholder,
-.contact-field-block .choices__list[aria-expanded] .choices__placeholder {
-  display: none;
-}
 
 @media screen and (max-width: 991px) {
   .w-container {
@@ -5779,4 +5687,45 @@ img {
     padding: 20px;
     gap: 16px;
   }
+}
+
+/* Contact form dropdown styling */
+.contact-field-block select,
+.contact-field-block .w-select {
+  width: 100%;
+  min-height: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 14px;
+  background-color: #ffffff;
+  color: #0b1149;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.4;
+  padding: 0 48px 0 18px;
+  box-shadow: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, #0b1149 50%),
+    linear-gradient(135deg, #0b1149 50%, transparent 50%);
+  background-position:
+    calc(100% - 22px) 50%,
+    calc(100% - 16px) 50%;
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+}
+
+.contact-field-block select:focus,
+.contact-field-block .w-select:focus {
+  box-shadow: 0 0 0 2px rgba(106, 35, 255, 0.16);
+}
+
+.contact-field-block select:invalid,
+.contact-field-block .w-select:invalid {
+  color: rgba(11, 17, 73, 0.45);
 }
