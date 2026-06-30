@@ -9,8 +9,18 @@ contactForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   errorMessage.style.display = "none";
+
+  // Check captcha BEFORE doing anything else
+  const hCaptchaResponse = contactForm.querySelector(
+    "textarea[name=h-captcha-response]",
+  )?.value;
+
+  if (!hCaptchaResponse) {
+    alert("Please complete the captcha");
+    return;
+  }
+
   submitButton.disabled = true;
-  submitButton.value = "Sending...";
   submitButton.textContent = "Sending...";
 
   const formData = new FormData(contactForm);
@@ -27,13 +37,19 @@ contactForm.addEventListener("submit", async function (event) {
     } else {
       errorMessage.style.display = "block";
       submitButton.disabled = false;
-      submitButton.value = "Send message";
       submitButton.textContent = "Send message";
+
+      if (typeof hcaptcha !== "undefined") {
+        hcaptcha.reset();
+      }
     }
   } catch (error) {
     errorMessage.style.display = "block";
     submitButton.disabled = false;
-    submitButton.value = "Send message";
     submitButton.textContent = "Send message";
+
+    if (typeof hcaptcha !== "undefined") {
+      hcaptcha.reset();
+    }
   }
 });
